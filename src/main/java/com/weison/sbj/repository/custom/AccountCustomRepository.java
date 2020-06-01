@@ -9,6 +9,6 @@ import java.util.Optional;
 
 public interface AccountCustomRepository {
 
-    public Optional<Account> updateLastAccountByTask(Transaction transaction);
+    Optional<Account> updateLastAccount(Transaction transaction);
 
 }

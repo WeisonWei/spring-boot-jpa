@@ -34,7 +34,7 @@ public class AccountCustomRepositoryImpl implements AccountCustomRepository {
     TransactionDefinition transactionDefinition;
 
 
-    public Optional<Account> updateLastAccountByTask(Transaction transaction) {
+    public Optional<Account> updateLastAccount(Transaction transaction) {
         TransactionStatus transactionStatus = null;
         Account newAccount = null;
         try {
