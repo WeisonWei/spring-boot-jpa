@@ -12,6 +12,6 @@ import java.util.Optional;
 public interface AccountRepository extends JpaRepository<Account, Long>, BaseRepository<Account, Long>
         , AccountCustomRepository {
 
-    Optional<Account> findFirst1ByUidAndAccountTypeOrderByUtimeDesc(Long userId, Account.AccountType accountType);
+    Optional<Account> findFirst1ByUserIdAndAccountTypeOrderByUpdateTimeDesc(Long userId, Account.AccountType accountType);
 
 }

@@ -1,12 +1,14 @@
-package com.weison.sbj.modle;
+package com.weison.sbj.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import lombok.*;
+import org.jsondoc.core.annotation.ApiObject;
 
 import java.time.LocalDate;
 
 @Data
+@ApiObject
 @ToString
 @Builder
 @NoArgsConstructor

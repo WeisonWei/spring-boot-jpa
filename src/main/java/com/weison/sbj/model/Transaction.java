@@ -1,27 +1,29 @@
-package com.weison.sbj.modle;
+package com.weison.sbj.model;
 
 import com.weison.sbj.entity.Account;
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.ToString;
 import lombok.experimental.Accessors;
+import org.jsondoc.core.annotation.ApiObject;
+import org.jsondoc.core.annotation.ApiObjectField;
 
 @ApiModel(description = "用户交易")
+@ApiObject
 @Data
 @Accessors(chain = true)
 @ToString(callSuper = true)
 public class Transaction {
 
-    @ApiModelProperty("账户类型")
+    @ApiObjectField(description = "账户类型")
     private Account.AccountType accountType;
-    @ApiModelProperty("金额")
+    @ApiObjectField(description = "金额")
     private Float amount;
-    @ApiModelProperty("交易状态")
+    @ApiObjectField(description = "交易状态")
     private STATUS status;
-    @ApiModelProperty("交易类型")
+    @ApiObjectField(description = "交易类型")
     private Account.TransType transType;
-    @ApiModelProperty("用户ID")
+    @ApiObjectField(description = "用户ID")
     private Long uid;
 
 

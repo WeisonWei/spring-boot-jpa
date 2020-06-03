@@ -2,7 +2,7 @@ package com.weison.sbj.repository.custom;
 
 
 import com.weison.sbj.entity.Account;
-import com.weison.sbj.modle.Transaction;
+import com.weison.sbj.model.Transaction;
 
 import java.util.Collection;
 import java.util.List;

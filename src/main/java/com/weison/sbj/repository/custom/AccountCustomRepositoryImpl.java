@@ -1,7 +1,7 @@
 package com.weison.sbj.repository.custom;
 
 import com.weison.sbj.entity.Account;
-import com.weison.sbj.modle.Transaction;
+import com.weison.sbj.model.Transaction;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.IteratorUtils;
 import org.springframework.stereotype.Repository;
@@ -49,6 +49,7 @@ public class AccountCustomRepositoryImpl extends BatchRepository implements Acco
         return IteratorUtils.toList(iterator);
     }
 
+    @Override
     public Optional<Account> updateLastAccount(Transaction transaction) {
         TransactionStatus transactionStatus = null;
         Account newAccount = null;
@@ -60,7 +61,7 @@ public class AccountCustomRepositoryImpl extends BatchRepository implements Acco
             Account.TransType transType = transaction.getTransType();
 
             TypedQuery<Account> query = entityManager.createQuery("select a from Account a " +
-                    "where a.uid =:uid and a.accountType =:accountType order by a.utime desc", Account.class);
+                    "where a.userId =:userId and a.accountType =:accountType order by a.updateTime desc", Account.class);
             query.setHint("javax.persistence.cache.storeMode", CacheStoreMode.REFRESH);
             query.setParameter("userId", userId);
             query.setParameter("accountType", accountType);

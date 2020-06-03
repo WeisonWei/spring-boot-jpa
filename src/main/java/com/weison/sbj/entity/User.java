@@ -7,11 +7,14 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 import lombok.experimental.Accessors;
 import org.hibernate.annotations.DynamicUpdate;
+import org.jsondoc.core.annotation.ApiObject;
+import org.jsondoc.core.annotation.ApiObjectField;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
+@ApiObject
 @ApiModel(description = "用户")
 @Data
 @ToString
@@ -27,38 +30,37 @@ import java.time.LocalDate;
 public class User extends BaseEntity {
 
     @Builder.Default
-    @ApiModelProperty("姓名")
+    @ApiObjectField(description ="姓名")
     @Column(name = "name", nullable = true, columnDefinition = VARCHAR_DEFAULT_0)
     private String name = null;
 
     @Builder.Default
-    @ApiModelProperty("年龄")
+    @ApiObjectField(description ="年龄")
     @Column(name = "age", nullable = true, columnDefinition = INT_DEFAULT_0)
     private Integer age = null;
 
     @Builder.Default
-    @ApiModelProperty("性别")
+    @ApiObjectField(description ="性别")
     @Column(name = "sex", nullable = true, columnDefinition = INT_DEFAULT_0)
     private Sex sex = null;
 
     @Builder.Default
-    @ApiModelProperty("生日")
+    @ApiObjectField(description ="生日")
     @Column(name = "birth_day", nullable = true, columnDefinition = DATETIME_DEFAULT_0)
     @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private LocalDate birthDay = LocalDate.now();
 
     @Builder.Default
-    @ApiModelProperty("住址")
+    @ApiObjectField(description ="住址")
     @Column(name = "address_id", nullable = true, columnDefinition = BIGINT_DEFAULT_0)
     private Long addressId = null;
 
     @Builder.Default
-    @ApiModelProperty("乐观锁字段")
+    @ApiObjectField(description ="乐观锁字段")
     @Column(name = "version", nullable = true, columnDefinition = BIGINT_DEFAULT_0)
     @Version //乐观锁字段
     private Long version = null;
 
-    @ApiModel(description = "性别")
     public enum Sex {
         DEFAULT,
         MALE,

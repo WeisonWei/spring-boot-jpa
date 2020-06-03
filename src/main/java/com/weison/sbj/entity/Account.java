@@ -9,6 +9,7 @@ import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+import org.jsondoc.core.annotation.ApiObject;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,7 +17,7 @@ import javax.persistence.Index;
 import javax.persistence.Table;
 import java.util.Optional;
 
-
+@ApiObject
 @Table(name = "t_account", indexes = @Index(name = "idx_user_type", columnList = "user_id,account_type"))
 @Entity
 @Data

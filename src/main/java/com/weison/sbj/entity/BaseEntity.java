@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import lombok.extern.slf4j.Slf4j;
+import org.jsondoc.core.annotation.ApiObject;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
@@ -22,6 +23,7 @@ import java.lang.reflect.Type;
 import java.util.HashSet;
 import java.util.Set;
 
+@ApiObject
 @ApiModel(description = "所有Entity的父类")
 @Slf4j
 @MappedSuperclass
@@ -52,23 +54,23 @@ public abstract class BaseEntity implements Serializable {
 
     @ApiModelProperty("创建人")
     @CreatedBy
-    @Column(name = "cid", nullable = true, columnDefinition = BaseEntity.BIGINT_DEFAULT_0)
-    private Long cid;
+    @Column(name = "create_id", nullable = true, columnDefinition = BaseEntity.BIGINT_DEFAULT_0)
+    private Long createId;
 
     @ApiModelProperty("修改人")
     @LastModifiedBy
-    @Column(name = "mid", nullable = true, columnDefinition = BaseEntity.BIGINT_DEFAULT_0)
-    private Long mid;
+    @Column(name = "modify_id", nullable = true, columnDefinition = BaseEntity.BIGINT_DEFAULT_0)
+    private Long modifyId;
 
     @ApiModelProperty("创建时间")
     @CreatedDate
-    @Column(name = "ctime", nullable = true, columnDefinition = BaseEntity.BIGINT_DEFAULT_0)
-    private Long ctime;
+    @Column(name = "create_time", nullable = true, columnDefinition = BaseEntity.BIGINT_DEFAULT_0)
+    private Long createTime;
 
     @ApiModelProperty("修改时间")
     @LastModifiedDate
-    @Column(name = "utime", nullable = true, columnDefinition = BaseEntity.BIGINT_DEFAULT_0)
-    private Long utime;
+    @Column(name = "update_time", nullable = true, columnDefinition = BaseEntity.BIGINT_DEFAULT_0)
+    private Long updateTime;
 
     @ApiModelProperty("软删除")
     @Deprecated
@@ -81,12 +83,12 @@ public abstract class BaseEntity implements Serializable {
     }
 
     public BaseEntity insert() {
-        setCtime(System.currentTimeMillis());
+        setCreateTime(System.currentTimeMillis());
         return this;
     }
 
     public BaseEntity update() {
-        setUtime(System.currentTimeMillis());
+        setUpdateTime(System.currentTimeMillis());
         return this;
     }
 

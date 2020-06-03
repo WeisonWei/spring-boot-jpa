@@ -5,10 +5,12 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 import lombok.experimental.Accessors;
 import org.hibernate.annotations.DynamicUpdate;
+import org.jsondoc.core.annotation.ApiObject;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 
+@ApiObject
 @ApiModel(description = "住址")
 @Data
 @ToString
