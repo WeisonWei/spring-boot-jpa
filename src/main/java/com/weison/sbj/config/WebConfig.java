@@ -1,8 +1,10 @@
 package com.weison.sbj.config;
 
-import org.springframework.context.annotation.Configuration;
+import lombok.Data;
+import org.springframework.stereotype.Component;
 
-@Configuration
+@Component("WebConfig")
+@Data
 public class WebConfig {
-
+    private String name = "123";
 }
