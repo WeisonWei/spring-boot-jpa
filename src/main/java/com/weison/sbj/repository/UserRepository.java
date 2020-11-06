@@ -4,6 +4,8 @@ import com.weison.sbj.entity.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,5 +40,9 @@ public interface UserRepository extends JpaRepository<User, Long>, BaseRepositor
     CompletableFuture<Optional<User>> findTop1ByName(String name);
 
     Boolean existsBySex(User.Sex sex);
+
+    @Modifying
+    @Query(value = "UPDATE User set name=?2 WHERE id=?1")
+    Integer updateNameById(Long oid, String name);
 
 }

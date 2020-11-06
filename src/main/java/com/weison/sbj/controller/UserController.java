@@ -104,4 +104,16 @@ public class UserController {
         List<User> greaterThanAge = userService.findGreaterThanAge(min);
         return greaterThanAge;
     }
+
+    @ApiMethod(description = "查询年龄大于")
+    @ApiOperation("查询年龄大于")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "min", value = "5", example = "1", required = true),
+    })
+
+    @PostMapping("/users/u")
+    public Integer updateNameById(@RequestParam Long id, @RequestParam String name) {
+        Integer integer = userService.updateNameById(id, name);
+        return integer;
+    }
 }

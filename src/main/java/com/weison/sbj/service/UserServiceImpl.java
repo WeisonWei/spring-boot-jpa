@@ -54,4 +54,9 @@ public class UserServiceImpl implements UserService {
     public List<User> findGreaterThanAge(int min) {
         return userCustomRepository.findGreaterThanAge(min);
     }
+
+    @Override
+    public Integer updateNameById(Long id, String name) {
+        return userRepository.updateNameById(id,name);
+    }
 }

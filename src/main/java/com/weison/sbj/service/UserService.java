@@ -19,6 +19,8 @@ public interface UserService {
 
     Page<User> getPageUserByCondition(User user);
 
-    public List<User> findGreaterThanAge(int min);
+    List<User> findGreaterThanAge(int min);
+
+    Integer updateNameById(Long id, String name);
 
 }
